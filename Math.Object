@@ -1,0 +1,55 @@
+//bai 1
+// Dùng hàm powerup tính bình phương các số chia hết cho 2 trong mảng truyền vào
+
+function powerup(arr) {
+  // your code here!
+   return arr.map(function(item){
+       if(item % 2 ===0){
+           return Math.pow(item, 2);
+       }
+       else 
+        return item;
+   });
+}
+
+//bai 2
+/** 
+ * Dùng hàm average tính điểm trung bình 3 môn của một học sinh.
+ * Làm tròn điểm trung bình
+ * Ví dụ: [8, 8, 6.75]  => 8
+ * Gợi ý: Dùng Math.round 
+*/
+
+function average(arr) {
+  // your code here!
+  var sum = arr.reduce(function(x, y){
+      return x + y;
+  }, 0);
+  
+  return Math.round(sum/arr.length);
+}
+
+//bai 3
+/* 
+  Viết hàm positiveNumber để chuyển các số âm trong một mảng thành các số dương.
+  Yêu cầu sử dụng Math Object
+*/
+
+function positiveNumber(arr) {
+  // your code here
+  return arr.map(function(x){
+     return Math.abs(x); 
+  });
+}
+
+//bai 4
+
+// Viết hàm random để in ra một số ngẫu nhiên từ 1 - 100
+
+function random() {
+  // your code here!
+  var s = Math.random() * 100;
+    return Math.round(s);
+}
+
+// console.log(random());
