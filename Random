@@ -1,0 +1,5 @@
+random from 1 to 100
+function random() {
+  // your code here!
+  return Math.random() * 100
+}
