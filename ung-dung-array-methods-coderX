@@ -29,3 +29,24 @@ function filterProductsByCategoryId(products, categoryId) {
 }
 
 //bài 2
+
+/**
+ * Viêt hàm có sử dụng method filter để loại bỏ những phần tử bị lặp lại trong mảng:
+ * Tìm hiểu thêm indexOf:
+ * https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+ * Example:
+ * removeDuplicate([1, 1, 2, 3, 3]) // [1, 2, 3]
+ * 
+*/
+
+function removeDuplicate(array) {
+  // write code here...
+  var newArray = [];
+  return array.filter(function(x){
+     if(newArray.indexOf(x) == -1){//indexOf trả về giá trị index đầu tiên của mảng. Kiểm tra xem nếu rỗng
+         newArray.push(x);
+         return true;
+     } 
+     return false;
+  });
+}
