@@ -1,0 +1,12 @@
+//use reduce to make result
+//<tom><bill><kim>
+
+var item = ['tom', 'bill', 'kim'];
+
+function makeAchange(item){
+  return item.reduce(function(items,key){
+    return items.concat('<' + key + '>');
+  }, '');
+}
+
+makeAchange(item);
