@@ -1,0 +1,48 @@
+// bai 1
+/**
+ * Tạo một đối tượng student gồm các property name, sex, age
+ * Example:
+  name: "CodersX",
+  sex: "Male",
+  age: 1
+ * Viết hàm showInfo trả về object đó
+*/
+var student = {
+  name: 'CodersX',
+  sex: 'Male',
+  age: 1
+};//data tự nhập ok fine :))
+
+function showInfo(obj) {
+  // viết code ở đây
+  this.obj = student;
+
+}
+  var student1 = new showInfo();
+  console.log(student1);
+  
+  //bai 2
+  /**
+ * Viết hàm xoá thuộc tính (prop) khỏi object student
+ * Trả về object đã được xoá
+ * Example:
+ *  removeProp("name") = { class: “VI”, rollno: 12 }
+*/
+
+function removeProp(prop) {
+    var student = {
+            name : "David Rayy",
+            class : "VI",
+            rollno : 12
+        };
+  // chỉ viết code ở dưới dòng này.
+  for(var i in student){
+      if(i === prop){
+          delete student[i];
+      }
+  }
+    return student;
+}
+// var student1 = new removeProp("rollno");
+
+// console.log(student1);
