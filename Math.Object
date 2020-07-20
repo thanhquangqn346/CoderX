@@ -53,3 +53,64 @@ function random() {
 }
 
 // console.log(random());
+
+//bai 5
+/** 
+ * Viết hàm rightTriangle nhập vào 3 cạnh của một tam giác.
+ * Cho biết đó có phải là tam giác vuông hay không? 
+ */
+function rightTriangle(a, b, c) {
+  // your code here
+  //   if (a + b > c && b + c > a && a + c > b) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  if (a > b && a > c) {
+    return b * b + c * c == a * a;
+  } else if (b > a && b > c) {
+    return b * b == a * a + c * c;
+  } else if (c > a && c > b) {
+    return c * c == a * a + b * b;
+  }
+  return false;
+}
+
+//bai 6
+
+/** 
+ * Viết hàm circumferenceOfCircle() tính chu vi và hàm acreageOfCircle() tính diện tích hình tròn 
+ * khi biết bán kính
+ * Với PI = 3.14  
+*/
+const s = Math.PI = 3.14;
+
+function circumferenceOfCircle(r) {
+  // your code here!
+  return s * 2 * r;
+}
+function acreageOfCircle(r) {
+  //your code here!
+  return s * Math.pow(r,2);
+  
+//   return s * r * r;       wrong way to complete example
+}
+
+//bai 7
+
+/** 
+ * Viết hàm trigonim để tính 3 giá trị sin cos tan của một số nhập vào
+ * Example: trigonim(45) = [ '0.851', '0.525', '1.620' ]
+ * Gợi ý: Sử dụng toFixed() method
+*/
+//number.toFixed(); : là method làm tròn đến mấy chữ số thập phân
+// vd: var number = 152.636489 
+//          number.toFixed(2) => 152.64
+function trigonim(number) {
+  // your code here
+  var arr = [];
+  arr.push(Math.sin(number).toFixed(3));
+  arr.push(Math.cos(number).toFixed(3));
+  arr.push(Math.tan(number).toFixed(3));
+  return arr;
+}
