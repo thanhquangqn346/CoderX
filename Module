@@ -1,0 +1,24 @@
+//bai 1
+
+/**
+ * 1. Require module math
+ * 2. Sử dụng method `add` để tính tổng 2 số bất kì
+ * 3. Log ra kết quả phép tính tổng ở trên
+ */
+ 
+ //file math.js
+ var math = {
+  add: function(a, b) {
+    return a + b;
+  }
+};
+module.exports = math;
+
+//file index.js
+var math = require('./math');
+
+var total = math.add(5,10);//add la function trong obj math
+
+console.log(total);
+
+//bai 2
