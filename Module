@@ -22,3 +22,60 @@ var total = math.add(5,10);//add la function trong obj math
 console.log(total);
 
 //bai 2
+
+//file math.js
+var math = {
+  add: function(a, b) {
+    return a + b;
+  },
+  multiply: function(a,b){
+    return a*b;
+  }
+};
+
+module.exports = math;
+
+//file index.js
+/**
+ * 1. Thêm method multiply vào module `math` nhận vào 2 số bất kì, trả về tích 2 số
+ * 2. Require module math và tính tích 2 số bất kì dùng method multiply đã tạo ở trên
+ * 3. Log ra kết quả
+ */
+
+var math = require('./math');
+
+var mul = math.multiply(5,10);
+
+console.log(mul);
+
+//bai 3
+//file math.js
+
+var math = {
+  add: function(a, b) {
+    return a + b;
+  },
+  sum: function sum(arr){
+    var count = 0;
+    for(var i of arr){
+      count+= i;
+    }
+    return count;
+  }
+};
+
+module.exports = math;
+
+//file index.js
+
+/**
+ * 1. Thêm method `sum` cho module `math`, nhận vào 1 array các số, trả về tổng các số
+ * 2. Require module math và sử dụng method sum để tính tổng 1 array các số bất kì
+ * 3. Log kết quả
+ */
+
+var math = require('./math');
+
+var cong = math.sum([1,2,3,4,5,6,7,8,9]);
+
+console.log(cong);
