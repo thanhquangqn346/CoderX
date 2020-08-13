@@ -138,3 +138,8 @@ var emptyTrash = require('empty-trash');
 (async () => {
 	await emptyTrash();
 })();
+
+
+async và await: nói nôm na là 1 cấp cao hơn của callback, dễ hiểu hơn là callback sẽ nằm tất cả sau await.
+- await phải luôn luôn nằm trong nếu có khai báo async.
+-async có thể đứng trc hoặc sau "function name"
