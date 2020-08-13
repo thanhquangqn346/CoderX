@@ -1,0 +1,54 @@
+index.js
+
+/**
+ * 1. Check file package.json bạn sẽ thấy module password-generator nằm trong danh sách dependencies
+ * 2. Đọc cách dùng module này dưới đây
+ * https://www.npmjs.com/package/password-generator
+ * 3. Tìm hiểu cách require một 3rd-party module trên repl.it: https://repl.it/site/blog/npm
+ * 4. Require module này và tạo ra 1 password ngẫu nhiên có 8 ký tự, dạng dễ nhớ
+ */
+
+var generatePassword = require('password-generator');
+
+console.log(generatePassword);
+
+
+package-lock.json
+
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "camelcase": {
+      "version": "4.1.0",
+      "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-4.1.0.tgz",
+      "integrity": "sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0="
+    },
+    "password-generator": {
+      "version": "2.2.0",
+      "resolved": "https://registry.npmjs.org/password-generator/-/password-generator-2.2.0.tgz",
+      "integrity": "sha1-/HXP95URCSPgVKWnFiNDMkC/Xkk=",
+      "requires": {
+        "yargs-parser": "^8.0.0"
+      }
+    },
+    "yargs-parser": {
+      "version": "8.1.0",
+      "resolved": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-8.1.0.tgz",
+      "integrity": "sha512-yP+6QqN8BmrgW2ggLtTbdrOyBNSI7zBa4IykmiV5R1wl1JWNxQvWhMfMdmzIYtKU7oP3OOInY/tl2ov3BDjnJQ==",
+      "requires": {
+        "camelcase": "^4.1.0"
+      }
+    }
+  }
+}
+
+
+package.json
+
+{
+  "main": "index.js",
+  "dependencies": {
+    "password-generator": "2.2.0"
+  }
+}
