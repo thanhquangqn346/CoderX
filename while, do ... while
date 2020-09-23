@@ -1,0 +1,21 @@
+/**
+ * Sử dụng vòng lặp while tính tổng các số lẻ nhỏ hơn x.
+ */
+function sum(x) {
+  // viết code ở đây.
+  var i = 0;
+  var summ = 0;
+  while (i < x) {
+    if (i % 2 !== 0) {
+      summ += i;
+    }
+    i++;
+  }
+  return summ;
+}
+
+
+//bai 2: https://repl.it/repls/OrnateTastyOpendoc#index.js
+
+//bai 3: https://repl.it/repls/DescriptiveLiveMp3#index.js
+
