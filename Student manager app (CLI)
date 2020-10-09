@@ -1,0 +1,129 @@
+/**
+ * Sử dụng kiến thức đã học, tạo ra một ứng dụng danh bạ điện thoại, có các chức năng:
+ * - Nhập dữ liệu contact (name, phone number)
+ * - Sửa dữ liệu contact
+ * - Xoá contact
+ * - Tìm kiếm contact: có thể nhập vào tên (không dấu hoặc có dấu, chữ hoa hoặc chữ thường vẫn cho ra kết quả) hoặc 1 phần số điện thoại
+ */
+var readlineSync = require('readline-sync')
+var fs = require('fs');
+var listContacts = [];
+
+function loadData(){
+  var load = fs.readFileSync('./data.json');
+  contact = JSON.parse(load);
+}
+
+function menu(){
+  console.log("1. Nhap 1 contact");
+  console.log("2. Sua 1 contact");
+  console.log("3. Xoa 1 contact");
+  console.log("4. Tim kiem contact")
+  console.log("5. Xuat contact.")
+  console.log("0. Thoat");
+
+  var option = -1;
+  option = readlineSync.question("Chon: ");
+  option = parseInt(option);
+  switch(option){
+    case 1: 
+      nhapContact();
+      menu();
+      break;
+    case 2:
+      suaContact();
+      menu();
+      break;
+    case 3: 
+      xoaContact();
+      menu();
+    case 4:
+      timContact();
+      menu();
+    case 5:
+      xuatContact();
+      menu();
+  }
+}
+function nhapContact(){
+  var contact = {};
+  var name = readlineSync.question('Nhap ten: ');
+  var phone = readlineSync.question('Nhap phone: ');
+  contact.name = name;
+  contact.phone = parseInt(phone);
+  listContacts.push(contact);
+  save();
+}
+function xuatContact(){
+  for(var contact of listContacts){
+    console.log('Name: ', contact.name, ', Phone number: ', contact.phone);
+  }
+}
+
+function save(){
+  var load = JSON.stringify(listContacts);
+  fs.writeFileSync('./data.json', load,{encoding: 'utf-8'});
+}
+function suaContact(){
+  var sua = readlineSync.question('Nhap so phone can sua: ');
+  sua = parseInt(sua);
+  for(var i = 0; i < listContacts.length;i++){
+    if(listContacts[i].phone === sua){
+      var newPhone = readlineSync.question('Nhap so phone moi: ');
+      listContacts[i].phone = parseInt(newPhone);
+      save();
+      break;
+    }
+    else{
+      console.log("Please, enter again");
+      suaContact();
+    }
+  }
+}
+
+function xoaContact(){
+  var xoa = readlineSync.question('Nhap phone can xoa: ');
+  xoa = parseInt(xoa);
+  for(var i = 0;i < listContacts.length;i++){
+    if(listContacts[i].phone == xoa){
+      listContacts.splice(i,1);
+      save();
+      break;
+    }
+    else{
+      console.log("Please, enter again.");
+      xoaContact();
+    }
+  }
+}
+
+function timContact(){
+  var kq=[];
+  var temp=readlineSync.question('phone: ');
+  if(!isNaN(temp)){
+     temp = Number(temp);
+     
+     for(var x of listContacts){
+       if(Number(x.phone).toString().indexOf(Number(temp).toString())>=0){
+         
+          kq.push(x);
+          
+       }
+     }
+     xuatContact(kq);
+  }else{
+    temp = temp.toString();
+    for(var x of listContacts){
+      if(x.name.toLowerCase().indexOf(temp.toLowerCase())>=0){
+         kq.push(x);
+      }
+    }
+  xuatContact(kq);
+  }
+}
+
+function main(){
+  loadData();
+  menu();
+}
+ main();
